@@ -17,7 +17,7 @@ Insurance fraud is rare relative to legitimate claims (24.7% fraud in this datas
 
 ## Dataset
 
-`data/insurance_claims.csv` — 1,000 auto-insurance claims, 36 features after cleaning (policy details, customer demographics, incident type/severity, claim amounts, vehicle info), target `fraud_reported` (Y/N).
+`insurance_claims.csv` — 1,000 auto-insurance claims, 36 features after cleaning (policy details, customer demographics, incident type/severity, claim amounts, vehicle info), target `fraud_reported` (Y/N).
 Source: the public *Auto Insurance Claims* dataset on Kaggle.
 
 ## Approach
@@ -42,18 +42,18 @@ Source: the public *Auto Insurance Claims* dataset on Kaggle.
 | Random Forest (balanced) | 0.820 | 0.607 | 0.755 | 0.673 | 0.839 |
 | SVM (RBF) (balanced) | 0.805 | 0.639 | 0.469 | 0.541 | 0.858 |
 
-Full tables: [`results/table1_cv_results.csv`](results/table1_cv_results.csv) (cross-validation) and [`results/table2_test_results.csv`](results/table2_test_results.csv) (test).
+Full tables: [`table1_cv_results.csv`](table1_cv_results.csv) (cross-validation) and [`table2_test_results.csv`](table2_test_results.csv) (test).
 
 ### Model comparison
-![Model comparison](results/fig3_model_comparison.png)
+![Model comparison](fig3_model_comparison.png)
 
 ### Effect of threshold tuning
-![Confusion matrices](results/fig4_confusion_matrices.png)
+![Confusion matrices](fig4_confusion_matrices.png)
 
 ### What drives fraud predictions
-![Feature importance](results/fig5_feature_importance.png)
+![Feature importance](fig5_feature_importance.png)
 
-More figures in [`results/`](results/): class distribution, precision–recall curves, fraud rate by incident severity and by hobby.
+More figures in this repo (`fig1`–`fig6`): class distribution, precision–recall curves, fraud rate by incident severity and by hobby.
 
 ## Run it
 
@@ -61,19 +61,21 @@ More figures in [`results/`](results/): class distribution, precision–recall c
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python fraud_detection.py --data data/insurance_claims.csv --out results
+python fraud_detection.py --data insurance_claims.csv --out .
 ```
 
-Or open `fraud_detection.ipynb` and **Run All**. Takes about a minute; figures, tables and `summary.txt` are written to `results/`.
+Or open `fraud_detection.ipynb` and **Run All**. Takes about a minute; figures (`fig*.png`), tables (`table*.csv`) and `summary.txt` are regenerated in the project folder.
 
 ## Project structure
 
 ```
-├── data/insurance_claims.csv     # dataset
-├── fraud_detection.py            # full pipeline: cleaning → CV → threshold tuning → evaluation → plots
-├── fraud_detection.ipynb         # runs the pipeline and displays results
+├── fraud_detection.py      # full pipeline: cleaning → CV → threshold tuning → evaluation → plots
+├── fraud_detection.ipynb   # runs the pipeline and displays results
+├── insurance_claims.csv    # dataset
 ├── requirements.txt
-└── results/                      # generated figures, tables and summary
+├── fig1–fig6 *.png         # generated figures
+├── table1–3 *.csv          # generated results tables
+└── summary.txt             # all results in one file
 ```
 
 ## Limitations & next steps

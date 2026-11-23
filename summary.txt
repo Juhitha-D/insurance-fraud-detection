@@ -1,0 +1,51 @@
+rows=1000 features=36 fraud_rate=0.2470
+best_model=Gradient Boosting
+tuned_threshold=0.1660
+
+CV results
+                                Accuracy  Precision  Recall     F1  PR-AUC  ROC-AUC
+Model                                                                              
+Baseline (majority)                0.752      0.000   0.000  0.000   0.248    0.500
+Logistic Regression                0.819      0.667   0.535  0.594   0.643    0.863
+Logistic Regression (balanced)     0.839      0.634   0.823  0.716   0.643    0.863
+Decision Tree                      0.840      0.656   0.742  0.697   0.649    0.863
+Decision Tree (balanced)           0.845      0.646   0.828  0.726   0.663    0.871
+Random Forest                      0.775      0.592   0.293  0.392   0.596    0.846
+Random Forest (balanced)           0.818      0.610   0.727  0.664   0.579    0.844
+Gradient Boosting                  0.835      0.677   0.636  0.656   0.675    0.872
+Gradient Boosting (balanced)       0.845      0.659   0.773  0.712   0.660    0.871
+SVM (RBF)                          0.772      0.566   0.348  0.431   0.509    0.793
+SVM (RBF) (balanced)               0.789      0.596   0.455  0.516   0.556    0.816
+
+Test results
+                                              Accuracy  Precision  Recall     F1  PR-AUC  ROC-AUC
+Model                                                                                            
+Gradient Boosting – threshold default (0.50)     0.770      0.535   0.469  0.500   0.524    0.822
+Gradient Boosting – threshold tuned (0.17)       0.825      0.613   0.776  0.685   0.524    0.822
+Logistic Regression                              0.825      0.675   0.551  0.607   0.563    0.842
+Logistic Regression (balanced)                   0.830      0.627   0.755  0.685   0.562    0.843
+Decision Tree                                    0.825      0.625   0.714  0.667   0.570    0.846
+Decision Tree (balanced)                         0.845      0.636   0.857  0.730   0.566    0.830
+Random Forest                                    0.775      0.577   0.306  0.400   0.555    0.848
+Random Forest (balanced)                         0.820      0.607   0.755  0.673   0.558    0.839
+Gradient Boosting                                0.770      0.535   0.469  0.500   0.524    0.822
+Gradient Boosting (balanced)                     0.815      0.603   0.714  0.654   0.524    0.814
+SVM (RBF)                                        0.820      0.697   0.469  0.561   0.580    0.849
+SVM (RBF) (balanced)                             0.805      0.639   0.469  0.541   0.591    0.858
+
+Permutation importance
+incident_severity              0.230552
+insured_hobbies                0.122299
+age                            0.004365
+umbrella_limit                 0.003601
+insured_relationship           0.003370
+police_report_available        0.003104
+number_of_vehicles_involved    0.001225
+auto_make                      0.001180
+incident_city                 -0.000089
+incident_type                 -0.000676
+authorities_contacted         -0.000816
+property_claim_ratio          -0.001608
+policy_state                  -0.002109
+policy_csl                    -0.002484
+policy_deductable             -0.003343

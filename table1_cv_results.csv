@@ -1,0 +1,12 @@
+Model,Accuracy,Precision,Recall,F1,PR-AUC,ROC-AUC
+Baseline (majority),0.752,0.0,0.0,0.0,0.248,0.5
+Logistic Regression,0.819,0.667,0.535,0.594,0.643,0.863
+Logistic Regression (balanced),0.839,0.634,0.823,0.716,0.643,0.863
+Decision Tree,0.84,0.656,0.742,0.697,0.649,0.863
+Decision Tree (balanced),0.845,0.646,0.828,0.726,0.663,0.871
+Random Forest,0.775,0.592,0.293,0.392,0.596,0.846
+Random Forest (balanced),0.818,0.61,0.727,0.664,0.579,0.844
+Gradient Boosting,0.835,0.677,0.636,0.656,0.675,0.872
+Gradient Boosting (balanced),0.845,0.659,0.773,0.712,0.66,0.871
+SVM (RBF),0.772,0.566,0.348,0.431,0.509,0.793
+SVM (RBF) (balanced),0.789,0.596,0.455,0.516,0.556,0.816
